@@ -1,0 +1,4050 @@
+
+    console.log("Welcome To SpaceScript :)")
+var c 
+var clickCall=[] 
+var moveCall=[] 
+var variables=[["frames",0],["mouseX",0],["mouseY",0]]
+var functions=[[]]
+var functionControl=0
+var varControl=3
+var clickControl=0
+var loopThis=[];
+var loopControl=0;
+function changeText(id,desiredText,event){
+var e=document.getElementById(id) 
+if(typeof(event)!=="undefined"){
+if(event==="none"){
+e.innerText=desiredText
+}
+if(event==="whenClicked"){
+e.onclick=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenMouseMoved"){
+e.onmousemoved=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenMouseOut"){
+e.onmouseout=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenMouseEnters"){
+e.onmouseenter=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenKeyUp"){
+e.onkeyup=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenKeyDown"){
+e.onkeydown=function(){
+e.innerText=desiredText
+}
+if(event==="whenKeyPress"){
+e.onkeypress=function(){
+e.innerText=desiredText
+}
+}
+}
+}
+} 
+function checkParam(FNAME,PNAME){
+for(var i=0;i<functions.length;i++){
+if(functions[i][0]===name){
+var code=functions[i][1].split("|") 
+for(var p=0;p<code.length;p++){
+if(code[p]===PNAME){
+return "found"
+}
+}
+}
+}
+}
+
+
+
+
+function runWithParams(name,param){
+var p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,start,end
+for(var i=0;i<functions.length;i++){
+if(functions[i][0]==name){
+var userData=param.split("|") 
+var functionData=functions[i][2].split("|") 
+var functionParams=functions[i][1].split("|") 
+for(var f=0;f<functionData.length;f++){
+if(functionData[f]==="navigate"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p2=getVariable(userData[u+2])
+}else{
+p2=userData[u+1]
+}
+}
+}
+navigate(p1,p2)
+}
+if(functionData[f]==="Pause"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+Pause(p1)
+}
+if(functionData[f]==="Stop"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+Stop(p1)
+}
+if(functionData[f]==="Play"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+Play(p1)
+}
+if(functionData[f]==="createVideo"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p2=getVariable(userData[u+2])
+}else{
+p2=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p3=getVariable(userData[u+2])
+}else{
+p3=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p4=getVariable(userData[u+2])
+}else{
+p4=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p5=getVariable(userData[u+2])
+}else{
+p5=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+6] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p6=getVariable(userData[u+2])
+}else{
+p6=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+7] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p7=getVariable(userData[u+2])
+}else{
+p7=userData[u+1]
+}
+}
+}
+createVideo(p1,p2,p3,p4,p5,p6,p7)
+}
+if(functionData[f]==="createAudio"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p2=getVariable(userData[u+2])
+}else{
+p2=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p3=getVariable(userData[u+2])
+}else{
+p3=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p4=getVariable(userData[u+2])
+}else{
+p4=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p5=getVariable(userData[u+2])
+}else{
+p5=userData[u+1]
+}
+}
+}
+createAudio(p1,p2,p3,p4,p5)
+}
+if(functionData[f]==="createPopUp"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p2=getVariable(userData[u+2])
+}else{
+p2=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p3=getVariable(userData[u+2])
+}else{
+p3=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p4=getVariable(userData[u+2])
+}else{
+p4=userData[u+1]
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p5=getVariable(userData[u+2])
+}else{
+p5=userData[u+1]
+}
+}
+}
+createPopUp(p1,p2,p3,p4,p5)
+}
+if(functionData[f]==="3DSquare"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p2=getVariable(userData[u+2])
+}else{
+p2=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p3=getVariable(userData[u+2])
+}else{
+p3=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p4=getVariable(userData[u+2])
+}else{
+p4=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p5=getVariable(userData[u+2])
+}else{
+p5=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+6] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+6]==="TYPEVAR"){
+p1=getVariable(userData[u+2])
+}else{
+p1=userData[u+6]
+}
+}
+if(userData[u]===functionData[f+7] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p7=getVariable(userData[u+2])
+}else{
+p7=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+8] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p8=getVariable(userData[u+2])
+}else{
+p8=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+9] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p9=getVariable(userData[u+2])
+}else{
+p9=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+10] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p10=getVariable(userData[u+2])
+}else{
+p10=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+11] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p11=getVariable(userData[u+2])
+}else{
+p11=userData[u+1]
+}
+}
+if(userData[u]===functionData[f+12] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]==="TYPEVAR"){
+p12=getVariable(userData[u+2])
+}else{
+p12=userData[u+1]
+}
+}
+threeDSquare(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12)
+}
+}
+
+if(functionData[f]==="consoleInfo"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleInfo(userData[u+1],userData[u+2])
+}
+}
+}
+
+if(functionData[f]==="consoleCountReset"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleCountReset(userData[u+1],userData[u+2])
+}
+}
+}
+
+if(functionData[f]==="consoleNumberCount"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleNumberCount(userData[u+1],userData[u+2])
+}
+}
+}
+
+if(functionData[f]==="consoleAssert"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleAssert(userData[u+1],userData[u+2])
+}
+}
+}
+
+if(functionData[f]==="consoleLog"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleLog(userData[u+1],userData[u+2])
+}
+}
+}
+
+if(functionData[f]==="consoleError"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleError(userData[u+1],userData[u+2])
+}
+}
+}
+
+if(functionData[f]==="consoleWarning"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleWarn(userData[u+1],userData[u+2])
+}
+}
+}
+if(functionData[f]==="consoleDebug"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+consoleDebug(userData[u+1],userData[u+2])
+}
+}
+}
+
+if(functionData[f]==="pinToSessionStorage"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+pinToSessionStorage(p1,p2)
+}
+if(functionData[f]==="pinToLocalStorage"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+pinToLocalStorage(p1,p2)
+}
+if(functionData[f]==="accessSessionStorage"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+accessSessionStorage(p1,p2)
+}//accessSessionStorage
+if(functionData[f]==="accessLocalStorage"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+accessLocalStorage(p1,p2)
+}//accessLocalStorage
+if(functionData[f]==="add1"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+add1(p1)
+}//add1
+if(functionData[f]==="add"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+add(p1,p2,p3)
+}//add
+if(functionData[f]==="createCanvas"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+createCanvas(p1,p2,p3)
+}//createCanvas
+if(functionData[f]==="bezierVertex"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p4=userData[u+1]
+}else{
+p4=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p5=userData[u+1]
+}else{
+p5=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+6] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p6=userData[u+1]
+}else{
+p6=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+7] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p7=userData[u+1]
+}else{
+p7=getVariable(userData[u+2])
+}
+}
+}
+bezierVertex(p1,p2,p3,p4,p5,p6,p7)
+}//bezierVertex
+if(functionData[f]==="endShape"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+endShape(p1)
+}//endShape
+if(functionData[f]==="beginShape"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+beginShape(p1)
+}//beginShape
+if(functionData[f]==="lineTo"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+lineToward(p1,p2,p3)
+}//lineTo
+if(functionData[f]==="startLine"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+startLine(p1,p2,p3)
+}//startLine
+if(functionData[f]==="addAttribute"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+}//addAttribute
+if(functionData[f]==="redefine"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+redefine(p1,p2)
+}//redefine
+if(functionData[f]==="declare"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+declare(p1,p2)
+}//declare
+if(functionData[f]==="changeFontSize"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+document.getElementById(p1).style.fontSize=p2+"px"
+}//changeFontSize
+if(functionData[f]==="changeBackgroundColor"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+document.getElementById(p1).style.backgroundColor=p2
+}//changeBackgroundColor
+if(functionData[f]==="changeFont"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+document.getElementById(p1).style.fontFamily=p2
+}//changeFont
+if(functionData[f]==="changeTextColor"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+document.getElementById(p1).style.color=p2
+}//changeTextColor
+if(functionData[f]==="MAKEINVISIBLE"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+
+}
+if(functionData[f]==="loop"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+loopThis[loopControl]=p1
+}
+if(functionData[f]==="NOSTROKE"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+noStroke(p1)
+}//NOSTROKE
+if(functionData[f]==="outerColor"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+outerColor(p1,p2)
+}//outerColor
+if(functionData[f]==="innerColor"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+innerColor(p1,p2)
+}//innerColor
+if(functionData[f]==="if"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+when(p1,p2)
+}//if
+if(functionData[f]==="redefine"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+redefine(p1,p2)
+}//redefine
+if(functionData[f]==="create"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p4=userData[u+1]
+}else{
+p4=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p5=userData[u+1]
+}else{
+p5=getVariable(userData[u+2])
+}
+}
+}
+create(p1,p2,p3,p4,p5)
+}//create
+
+if(functionData[f]==="triangle"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p4=userData[u+1]
+}else{
+p4=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p5=userData[u+1]
+}else{
+p5=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+6] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p6=userData[u+1]
+}else{
+p6=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+7] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p7=userData[u+1]
+}else{
+p7=getVariable(userData[u+2])
+}
+}
+}
+triangle(p1,p2,p3,p4,p5,p6,p7)
+}
+if(functionData[f]==="square"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+4] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p4=userData[u+1]
+}else{
+p4=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+5] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p5=userData[u+1]
+}else{
+p5=getVariable(userData[u+2])
+}
+}
+}
+
+square(p1,p2,p3,p4,p5)
+}
+if(functionData[f]==="changeText"){
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+1] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p1=userData[u+1]
+}else{
+p1=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+2] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p2=userData[u+1]
+}else{
+p2=getVariable(userData[u+2])
+}
+}
+}
+for(var u=0;u<userData.length;u++){
+if(userData[u]===functionData[f+3] && userData[u-1]==="TYPEPARAM"){
+if(userData[u+1]!=="TYPEVAR"){
+p3=userData[u+1]
+}else{
+p3=getVariable(userData[u+2])
+}
+}
+}
+changeText(p1,p2,p3)
+}//changeText
+
+}
+}
+}
+}
+var start=-2
+var end=-1
+var side1,side2
+function enableCommenting(){
+var toBeSep=document.querySelector("space-script")
+var sep=toBeSep.innerText 
+var s=sep.split(" ")
+for(var i=0;i<s.length;i++){
+if(s[i]==="startComment"){
+start=i
+}
+if(s[i]==="endComment"){
+end=i
+}
+}
+}
+enableCommenting()
+var txt=""
+function prep(){
+var SpaceScript=document.querySelector("space-script") 
+c=SpaceScript.innerText 
+SpaceScript.style.display="none" 
+var code=c.split(" ") 
+for(var i=0;i<=code.length-1;i++){
+if(i<start||i>end){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="canvasTextFont"){
+canvasTextFont(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="text"){
+textToCanvas(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11])
+}
+if(code[i]==="3dSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12],code[i+13],code[i+14],code[i+15],code[i+16],code[i+17],code[i+18],code[i+19])
+}
+if(code[i]==="notify"){
+alert(code[i+1])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+console.count(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1])
+}
+if(code[i]==="accesslocalStorage"){
+accessLocalStorage(code[i+1])
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="createFunctionWithParams" ){
+createFunctionWithParams(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="runWithParams" ){
+runWithParams(code[i+1],code[i+2],code[i+3])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+    if(code[i]==="createCanvas"){
+        createCanvas(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i]==="bezierVertex"){
+        bezeirVertex(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+    }
+    if(code[i]==="startLine"){
+        startLine(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="lineTo"){
+        lineToward(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="beginShape"){
+        begin(code[i+1])
+    }
+    if(code[i]==="endShape"){
+        end(code[i+1])
+    }
+    if(code[i]==="addAttribute"){
+        addAttribute(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="MAKEINVISIBLE"){
+        invisible(code[i+1])
+    }
+   if(code[i]==="NOSTROKE"){
+    noStroke(code[i+1])
+   }
+    if(code[i]==="triangle"){
+        triangle(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+    }
+    if(code[i]==="innerColor"){
+        innerColor(code[i+1],code[i+2])
+    }
+    if(code[i]==="outerColor"){
+        outerColor(code[i+1],code[i+2])
+    }
+    if(code[i]==="square" && code[i+1]!=="endComment"){
+        square(code[i+1],code[i+2],code[i+3],code[i+4],code[i+6])
+    }
+    if(code[i]==="getArrayValue"){
+        getArrayValue(code[i+1],code[i+2])
+    }
+    if(code[i]==="createArray"){
+        createArray(code[i+1],code[i+2])
+    }if(code[i]==="redefine"){
+        redefine(code[i+1],code[i+2])
+    }
+    if(code[i]==="if"){
+        when(code[i+1])
+    }
+    if(code[i]==="useEventCallback"){
+        useEventCallback(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="for"){
+        forLoop(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6])
+    }
+if(code[i]==="changeText"){
+    var txt=code[i+2].split("_")
+    code[i+2]=""
+    for(var t=0;t<=txt.length-1;t++){
+        if(typeof(txt[t])==="undefined"){
+            txt[t]=""
+        }
+        code[i+2]=code[i+2]+" "+txt[t]
+    }
+changeText(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="createFunction"){
+createFunction(code[i+1],code[i+2])
+}
+if(code[i]==="create"){
+    var text=code[i+3].split("_")
+    code[i+3]=""
+    for(var t=0;t<=text.length-1;t++){
+        if(typeof(text[t])==="undefined"){
+            text[t]=""
+        }
+        code[i+3]=code[i+3]+" "+text[t]
+        
+    }
+    
+create(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="grabElementById"){
+grabElementById(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="getVar"){
+getVar(code[i+1],code[i+2])
+}
+if(code[i]==="changeTextColor"){
+changeTextColor(code[i+1],code[i+2])
+}
+if(code[i]==="changeBackgroundColor"){
+changeBackgroundColor(code[i+1],code[i+2])
+}
+if(code[i]==="changeFont"){
+changeFont(code[i+1],code[i+2])
+}
+if(code[i]==="changeFontSize"){
+changeFontSize(code[i+1],code[i+2]) 
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i]==="bezierVertex"){
+    bezeirVertex(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+}
+}
+function declare(name,value){
+var result="" 
+for(var i=0;i<=variables.length-1;i++){
+if(variables[i][0]===name){
+variables[i][1]=value
+
+}
+}
+variables[varControl]=[name,value]
+
+varControl=varControl+1
+}
+function getVar(name,callback){
+for(var i=0;i<=variables.length-1;i++){
+var code=callback.split("_")
+if(variables[i][0]===name){
+if(code[0]==="logToConsole"){
+console.log("name: "+variables[i][0],"value: "+variables[i][1])
+}
+if(code[0]==="message"){
+alert("name: "+variables[i][0]+" value: "+variables[i][1])
+}
+if(code[0]==="math"){
+if(checkForAddSymbol(code[i+1])===true){
+var math=code[i+1].split("+") 
+if(isNaN(math[0])===false){
+var n1=parseInt(math[0])
+}
+if(isNaN(math[1])===false){
+var n2=parseInt(math[1]) 
+console.log(n1+n2)
+}
+n1=n1+n2 
+
+n2=math[3] 
+if(isNaN(n2)===true){
+if(checkForSubtractSymbol(n2)===true){
+var n=n2.split("-") 
+n1=n1-n2 
+}
+}
+return
+
+console.log(math)
+} 
+
+}
+
+}
+}
+}
+function when(ifStatement){
+    var code=ifStatement.split("_")
+    for(var i=0;i<=code.length-1;i++){
+      if(code[i]==="="){
+try{if(code[i-2]==="TYPEVAR"){
+code[i-1]=getVariable(code[i-1])
+}}catch(e){} 
+try{if(code[i+1]==="TYPEVAR"){
+code[i+1]=getVariable(code[i+2])
+}}catch(e){}
+try{
+if(code[i-3]==="TYPEARRAY"){
+    
+code[i-1]=getArrayValue(code[i-2],code[i-1])
+}
+if(code[i+1]==="TYPEARRAY"){  
+  code[i+1]=getArrayValue(code[i+2],code[i+3])
+    code[i+2]=code[i+4]
+    code[i+3]=code[i+5]
+    code[i+4]=code[i+6]
+}
+}catch(e){}
+if(isNaN(code[i-1])&& code[i+1]!=="true" && code[i+1]!=="false"){
+    code[i-1]=getVariable(code[i-1])
+}
+if(isNaN(code[i+1]) && code[i+1]!=="true" && code[i+1]!=="false"){
+    code[i+1]=getVariable(code[i+1])
+}
+if(isNaN(code[i-1])===false){
+    code[i-1]=parseInt(code[i-1])
+}
+if(isNaN(code[i+1])===false){
+    code[i+1]=parseInt(code[i+1])
+}
+            if(code[i-1]===code[i+1]){
+if(code[i+2]==="navigate"){
+navigate(code[i+3],code[i+4])
+}
+if(code[i+2]==="Pause"){
+Pause(code[i+3])
+}
+if(code[i+2]==="Stop"){
+Stop(code[i+3])
+}
+if(code[i+2]==="Play"){
+Play(code[i+3])
+}
+if(code[i+2]==="createVideo"){
+createVideo(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}
+if(code[i+2]==="createAudio"){
+createAudio(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="createPopUp"){
+createPopUp(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="3DSquare"){
+threeDSquare(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12],code[i+13],code[i+14])
+}
+if(code[i+2]==="notify"){
+notify(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleWarning"){
+consoleWarn(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleError"){
+consoleError(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleLog"){
+consoleLog(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleAssert"){
+consoleAssert(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleNumberCount"){
+consoleNumberCount(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleCountReset"){
+consoleCountReset(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleDebug"){
+consoleDebug(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleInfo"){
+consoleInfo(code[i+3],code[i+4])
+}
+if(code[i+2]==="accessSessionStorage"){
+accessSessionStorage(code[i+3])
+}
+if(code[i+2]==="accessLocalStorage"){
+accessLocalStorage(code[i+3])
+}
+if(code[i+2]==="pinToSessionStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToSessionStorage(code[i+3],code[i+4])
+}else{
+pinToSessionStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+if(code[i+2]==="pinToLocalStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToLocalStorage(code[i+3],code[i+4])
+}else{
+pinToLocalStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+                if(code[i+2]==="beginShape"){
+                    begin(code[i+3])
+                }
+                if(code[i+2]==="endShape"){
+                    end(code[i+3])
+                }
+                if(code[i+2]==="startLine"){
+                    startLine(code[i+3],code[i+4],code[i+5])
+                }
+                if(code[i+2]==="lineTo"){
+                    lineToward(code[i+3],code[i+4],code[i+5])
+                }
+                if(code[i+2]==="subtract"){
+        subtract(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="add"){
+        add(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3])
+    }
+    if(code[i+2]==="multiply"){
+        multiply(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="divide"){
+        divide(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3],code[i+4])
+    }
+                if(code[i+2]==="add1"){
+        add1(code[i+3])
+    }
+    if(code[i+2]==="loop"){
+        loopThis[loopControl]=code[i+3]
+        loopControl++;
+    }
+                if(code[i+2]==="redefine"){
+                    redefine(code[i+3],code[i+4])
+                }
+                if(code[i+2]==="changeTextColor"){
+                    
+                    document.getElementById(code[i+3]).style.color=code[i+4]
+                    }
+                    if(code[i+2]==="changeBackgroundColor"){
+                    document.getElementById(code[i+3]).style.backgroundColor=code[i+4]
+                    }
+                    if(code[i+2]==="changeFontSize"){
+                    document.getElementById(code[i+3]).style.fontSize=code[i+4]
+                    }
+                    if(code[i+2]==="changeFont"){
+                    document.getElementById(code[i+3]).style.fontFamily=code[i+4]
+                    }
+                    if(code[i+2]==="declare"){
+                    declare(code[i+3],code[i+4])
+                    }
+                    if(code[i+2]==="run"){
+                    run(code[i+3])
+                    }
+                    if(code[i+2]==="bezierVertex"){
+                        bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+                    }
+if(code[i+2]==="createFunction"){
+createFunction(code[i+3],code[i+4])
+}if(code[i+2]==="createCanvas"){
+    createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+            }
+        }
+        if(code[i]==="DOESNOTEQUAL"||code[i]==="!="){
+var obj1=code[i-1] 
+var obj2=code[i+1]
+if(code[i-2]==="TYPEVAR"){
+obj1=getVariable(code[i-1])
+}
+if(code[i+1]==="TYPEVAR"){
+obj2=getVariable(code[i+2]) 
+code[i+2]=code[i+3] 
+code[i+3]=code[i+4] 
+console.log(obj2,code[i+2]) 
+}
+try{
+    if(code[i-3]==="TYPEARRAY"){
+        
+   obj1=getArrayValue(code[i-2],code[i-1])
+    }
+    if(code[i+1]==="TYPEARRAY"){
+      alert("yup")  
+      obj2=getArrayValue(code[i+2],code[i+3])
+        code[i+2]=code[i+4]
+        code[i+3]=code[i+5]
+        code[i+4]=code[i+6]
+    }
+    }catch(e){}
+            if(obj1!==obj2){
+if(code[i+2]==="navigate"){
+navigate(code[i+3],code[i+4])
+}
+if(code[i+2]==="Pause"){
+Pause(code[i+3])
+}
+if(code[i+2]==="Stop"){
+Stop(code[i+3])
+}
+if(code[i+2]==="Play"){
+Play(code[i+3])
+}
+if(code[i+2]==="createVideo"){
+createVideo(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}
+if(code[i+2]==="createAudio"){
+createAudio(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="createPopUp"){
+createPopUp(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="3DSquare"){
+threeDSquare(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12],code[i+13],code[i+14])
+}
+if(code[i+2]==="notify"){
+notify(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleWarning"){
+consoleWarn(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleError"){
+consoleError(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleLog"){
+consoleLog(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleAssert"){
+consoleAssert(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleNumberCount"){
+consoleNumberCount(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleCountReset"){
+consoleCountReset(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleDebug"){
+consoleDebug(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleInfo"){
+consoleInfo(code[i+3],code[i+4])
+}
+if(code[i+2]==="accessSessionStorage"){
+accessSessionStorage(code[i+3])
+}
+if(code[i+2]==="accessLocalStorage"){
+accessLocalStorage(code[i+3])
+}
+if(code[i+2]==="pinToSessionStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToSessionStorage(code[i+3],code[i+4])
+}else{
+pinToSessionStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+if(code[i+2]==="pinToLocalStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToLocalStorage(code[i+3],code[i+4])
+}else{
+pinToLocalStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+                if(code[i+2]==="subtract"){
+        subtract(code[i+3],code[i+4])
+    }
+    if(code[i+2]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3])
+    }
+    if(code[i+2]==="multiply"){
+        multiply(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="divide"){
+        divide(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3],code[i+4])
+    }
+                if(code[i+2]==="add1"){
+        add1(code[i+3])
+    }
+    if(code[i+2]==="loop"){
+        loopThis[loopControl]=code[i+3]
+        console.log(loopThis)
+        loopControl++;
+    }
+                if(code[i+2]==="redefine"){
+                    redefine(code[i+3],code[i+4])
+                }
+                if(code[i+2]==="changeTextColor"){
+                    document.getElementById(code[i+3]).style.color=code[i+4]
+                    }
+                    if(code[i+2]==="changeBackgroundColor"){
+                    document.getElementById(code[i+3]).style.backgroundColor=code[i+4]
+                    }
+                    if(code[i+2]==="changeFontSize"){
+                    document.getElementById(code[i+3]).style.fontSize=code[i+4]
+                    }
+                    if(code[i+2]==="changeFont"){
+                    document.getElementById(code[i+3]).style.fontFamily=code[i+4]
+                    }
+                    if(code[i+2]==="declare"){
+                    declare(code[i+3],code[i+4])
+                    }
+                    if(code[i+2]==="run"){
+                    run(code[i+3])
+                    }
+                    if(code[i+2]==="bezierVertex"){
+                        bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+                    }
+                    if(code[i+2]==="createCanvas"){
+                        createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+                    }
+if(code[i+2]==="createFunction"){
+createFunction(code[i+3],code[i+4])
+}
+            }
+        }
+        if(code[i]===">="){
+var obj1=code[i-1] 
+var obj2=code[i+1]
+if(code[i-2]==="TYPEVAR"){
+obj1=getVariable(code[i-1])
+}
+if(code[i+1]==="TYPEVAR"){
+obj2=getVariable(code[i+2]) 
+code[i+2]=code[i+3] 
+code[i+3]=code[i+4] 
+console.log(obj2,code[i+2]) 
+}
+try{
+    if(code[i-3]==="TYPEARRAY"){
+        
+   obj1=getArrayValue(code[i-2],code[i-1])
+    }
+    if(code[i+1]==="TYPEARRAY"){
+      alert("yup")  
+      obj2=getArrayValue(code[i+2],code[i+3])
+        code[i+2]=code[i+4]
+        code[i+3]=code[i+5]
+        code[i+4]=code[i+6]
+    }
+    }catch(e){}
+            if(isNaN(obj1)===false){
+                obj1=parseInt(obj1) 
+            }
+            if(isNaN(obj2)===false){
+                obj2=parseInt(obj2)
+            }
+            if(isNaN(obj1)===true){
+obj1=parseInt(obj1)
+            }
+            if(isNaN(obj2)===true){
+                 obj2=parseInt(obj2)
+            }
+            if(obj1>=obj2){
+if(code[i+2]==="navigate"){
+navigate(code[i+3],code[i+4])
+}
+if(code[i+2]==="Pause"){
+Pause(code[i+3])
+}
+if(code[i+2]==="Stop"){
+Stop(code[i+3])
+}
+if(code[i+2]==="Play"){
+Play(code[i+3])
+}
+if(code[i+2]==="createVideo"){
+createVideo(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}
+if(code[i+2]==="createAudio"){
+createAudio(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="createPopUp"){
+createPopUp(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="3DSquare"){
+threeDSquare(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12],code[i+13],code[i+14])
+}
+if(code[i+2]==="notify"){
+notify(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleWarning"){
+consoleWarn(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleError"){
+consoleError(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleLog"){
+consoleLog(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleAssert"){
+consoleAssert(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleNumberCount"){
+consoleNumberCount(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleCountReset"){
+consoleCountReset(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleDebug"){
+consoleDebug(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleInfo"){
+consoleInfo(code[i+3],code[i+4])
+}
+if(code[i+2]==="accessSessionStorage"){
+accessSessionStorage(code[i+3])
+}
+if(code[i+2]==="accessLocalStorage"){
+accessLocalStorage(code[i+3])
+}
+if(code[i+2]==="pinToSessionStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToSessionStorage(code[i+3],code[i+4])
+}else{
+pinToSessionStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+if(code[i+2]==="pinToLocalStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToLocalStorage(code[i+3],code[i+4])
+}else{
+pinToLocalStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+                if(code[i+2]==="subtract"){
+        subtract(code[i+3],code[i+4])
+    }
+    if(code[i+2]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3])
+    }
+    if(code[i+2]==="multiply"){
+        multiply(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="divide"){
+        divide(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3],code[i+4])
+    }
+                if(code[i+2]==="add1"){
+        add1(code[i+3])
+    }
+    if(code[i+2]==="loop"){
+        loopThis[loopControl]=code[i+3]
+        console.log(loopThis)
+        loopControl++;
+    }
+                if(code[i+2]==="redefine"){
+                    redefine(code[i+3],code[i+4])
+                }
+                if(code[i+2]==="changeTextColor"){
+                    var num=i 
+                    console.log(code[i+3])
+                    document.getElementById(code[i+3]).style.color=code[i+4]
+                    }
+                    if(code[i+2]==="changeBackgroundColor"){
+                    document.getElementById(code[i+3]).style.backgroundColor=code[i+4]
+                    }
+                    if(code[i+2]==="changeFontSize"){
+                    document.getElementById(code[i+3]).style.fontSize=code[i+4]
+                    }
+                    if(code[i+2]==="changeFont"){
+                    document.getElementById(code[i+3]).style.fontFamily=code[i+4]
+                    }
+                    if(code[i+2]==="declare"){
+                    declare(code[i+3],code[i+4])
+                    }
+                    if(code[i+2]==="run"){
+                    run(code[i+3])
+                    }
+                    if(code[i+2]==="bezierVertex"){
+                        bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+                    } 
+if(code[i+2]==="createFunction"){
+createFunction(code[i+3],code[i+4])
+}
+            }
+        }
+        if(code[i]===">"){
+var obj1=code[i-1] 
+var obj2=code[i+1]
+if(code[i-2]==="TYPEVAR"){
+obj1=getVariable(code[i-1])
+}
+if(code[i+1]==="TYPEVAR"){
+obj2=getVariable(code[i+2]) 
+code[i+2]=code[i+3] 
+code[i+3]=code[i+4] 
+console.log(obj2,code[i+2]) 
+}
+try{
+    if(code[i-3]==="TYPEARRAY"){
+        
+   obj1=getArrayValue(code[i-2],code[i-1])
+    }
+    if(code[i+1]==="TYPEARRAY"){
+      alert("yup")  
+      obj2=getArrayValue(code[i+2],code[i+3])
+        code[i+2]=code[i+4]
+        code[i+3]=code[i+5]
+        code[i+4]=code[i+6]
+    }
+    }catch(e){}
+            if(isNaN(obj1)===false){
+                obj1=parseInt(obj1)
+            }
+            if(isNaN(obj2)===false){
+                obj2=parseInt(obj2)
+            }
+            if(isNaN(obj1)===true){
+obj1=parseInt(obj1)
+            }
+            if(isNaN(obj2)===true){
+                 obj2=parseInt(obj2)
+            }
+            if(obj1>obj2){
+if(code[i+2]==="navigate"){
+navigate(code[i+3],code[i+4])
+}
+if(code[i+2]==="Pause"){
+Pause(code[i+3])
+}
+if(code[i+2]==="Stop"){
+Stop(code[i+3])
+}
+if(code[i+2]==="Play"){
+Play(code[i+3])
+}
+if(code[i+2]==="createVideo"){
+createVideo(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}
+if(code[i+2]==="createAudio"){
+createAudio(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="createPopUp"){
+createPopUp(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="3DSquare"){
+threeDSquare(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12],code[i+13],code[i+14])
+}
+if(code[i+2]==="notify"){
+notify(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleWarning"){
+consoleWarn(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleError"){
+consoleError(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleLog"){
+consoleLog(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleAssert"){
+consoleAssert(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleNumberCount"){
+consoleNumberCount(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleCountReset"){
+consoleCountReset(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleDebug"){
+consoleDebug(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleInfo"){
+consoleInfo(code[i+3],code[i+4])
+}
+if(code[i+2]==="accessSessionStorage"){
+accessSessionStorage(code[i+3])
+}
+if(code[i+2]==="accessLocalStorage"){
+accessLocalStorage(code[i+3])
+}
+if(code[i+2]==="pinToSessionStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToSessionStorage(code[i+3],code[i+4])
+}else{
+pinToSessionStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+if(code[i+2]==="pinToLocalStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToLocalStorage(code[i+3],code[i+4])
+}else{
+pinToLocalStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+                if(code[i+2]==="subtract"){
+        subtract(code[i+3],code[i+4])
+    }
+    if(code[i+2]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3])
+    }
+    if(code[i+2]==="multiply"){
+        multiply(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="divide"){
+        divide(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3],code[i+4])
+    }
+                if(code[i+2]==="add1"){
+        add1(code[i+3])
+    }
+    if(code[i+2]==="loop"){
+        loopThis[loopControl]=code[i+3]
+        console.log(loopThis)
+        loopControl++;
+    }
+                if(code[i+2]==="redefine"){
+                    redefine(code[i+3],code[i+4])
+                }
+                if(code[i+2]==="changeTextColor"){
+                    var num=i 
+                    console.log(code[i+3])
+                    document.getElementById(code[i+3]).style.color=code[i+4]
+                    }
+                    if(code[i+2]==="changeBackgroundColor"){
+                    document.getElementById(code[i+3]).style.backgroundColor=code[i+4]
+                    }
+                    if(code[i+2]==="changeFontSize"){
+                    document.getElementById(code[i+3]).style.fontSize=code[i+4]
+                    }
+                    if(code[i+2]==="changeFont"){
+                    document.getElementById(code[i+3]).style.fontFamily=code[i+4]
+                    }
+                    if(code[i+2]==="declare"){
+                    declare(code[i+3],code[i+4])
+                    }
+                    if(code[i+2]==="run"){
+                    run(code[i+3])
+                    }
+                    if(code[i+2]==="bezierVertex"){
+                        bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+                    } 
+if(code[i+2]==="createFunction"){
+createFunction(code[i+3],code[i+4])
+}
+            }
+        }
+        if(code[i]==="LESSTHANOREQUALTO"){
+var obj1=code[i-1] 
+var obj2=code[i+1]
+if(code[i-2]==="TYPEVAR"){
+obj1=getVariable(code[i-1])
+}
+if(code[i+1]==="TYPEVAR"){
+obj2=getVariable(code[i+2]) 
+code[i+2]=code[i+3] 
+code[i+3]=code[i+4] 
+console.log(obj2,code[i+2]) 
+}
+try{
+    if(code[i-3]==="TYPEARRAY"){
+        
+   obj1=getArrayValue(code[i-2],code[i-1])
+    }
+    if(code[i+1]==="TYPEARRAY"){
+      alert("yup")  
+      obj2=getArrayValue(code[i+2],code[i+3])
+        code[i+2]=code[i+4]
+        code[i+3]=code[i+5]
+        code[i+4]=code[i+6]
+    }
+    }catch(e){}
+            if(isNaN(obj1)===false){
+                obj1=parseInt(obj1)
+            }
+            if(isNaN(obj2)===false){
+                obj2=parseInt(obj2)
+            }
+            if(isNaN(obj1)===true){
+obj1=parseInt(obj1)
+            }
+            if(isNaN(obj2)===true){
+                 obj2=parseInt(obj2)
+            }
+            if(obj1<=obj2){
+if(code[i+2]==="navigate"){
+navigate(code[i+3],code[i+4])
+}
+if(code[i+2]==="Pause"){
+Pause(code[i+3])
+}
+if(code[i+2]==="Stop"){
+Stop(code[i+3])
+}
+if(code[i+2]==="Play"){
+Play(code[i+3])
+}
+if(code[i+2]==="createVideo"){
+createVideo(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}
+if(code[i+2]==="createAudio"){
+createAudio(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="createPopUp"){
+createPopUp(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="3DSquare"){
+threeDSquare(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12],code[i+13],code[i+14])
+}
+if(code[i+2]==="notify"){
+notify(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleWarning"){
+consoleWarn(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleError"){
+consoleError(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleLog"){
+consoleLog(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleAssert"){
+consoleAssert(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleNumberCount"){
+consoleNumberCount(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleCountReset"){
+consoleCountReset(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleDebug"){
+consoleDebug(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleInfo"){
+consoleInfo(code[i+3],code[i+4])
+}
+if(code[i+2]==="accessSessionStorage"){
+accessSessionStorage(code[i+3])
+}
+if(code[i+2]==="accessLocalStorage"){
+accessLocalStorage(code[i+3])
+}
+if(code[i+2]==="pinToSessionStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToSessionStorage(code[i+3],code[i+4])
+}else{
+pinToSessionStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+if(code[i+2]==="pinToLocalStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToLocalStorage(code[i+3],code[i+4])
+}else{
+pinToLocalStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+                if(code[i+2]==="subtract"){
+        subtract(code[i+3],code[i+4])
+    }
+    if(code[i+2]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3])
+    }
+    if(code[i+2]==="multiply"){
+        multiply(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="divide"){
+        divide(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3],code[i+4])
+    }
+                if(code[i+2]==="add1"){
+        add1(code[i+3])
+    }
+    if(code[i+2]==="loop"){
+        loopThis[loopControl]=code[i+3]
+        console.log(loopThis)
+        loopControl++;
+    }
+                if(code[i+2]==="redefine"){
+                    redefine(code[i+3],code[i+4])
+                }
+                if(code[i+2]==="changeTextColor"){
+                    var num=i 
+                    console.log(code[i+3])
+                    document.getElementById(code[i+3]).style.color=code[i+4]
+                    }
+                    if(code[i+2]==="changeBackgroundColor"){
+                    document.getElementById(code[i+3]).style.backgroundColor=code[i+4]
+                    }
+                    if(code[i+2]==="changeFontSize"){
+                    document.getElementById(code[i+3]).style.fontSize=code[i+4]
+                    }
+                    if(code[i+2]==="changeFont"){
+                    document.getElementById(code[i+3]).style.fontFamily=code[i+4]
+                    }
+                    if(code[i+2]==="declare"){
+                    declare(code[i+3],code[i+4])
+                    }
+                    if(code[i+2]==="run"){
+                    run(code[i+3])
+                    }
+                    if(code[i+2]==="bezierVertex"){
+                        bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+                    }if(code[i+2]==="createCanvas"){
+                        createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+                    }
+if(code[i+2]==="createFunction"){
+createFunction(code[i+3],code[i+4])
+}
+            }
+        }
+        if(code[i]==="LESSTHAN"){
+var obj1=code[i-1] 
+var obj2=code[i+1]
+if(code[i-2]==="TYPEVAR"){
+obj1=getVariable(code[i-1])
+}
+if(code[i+1]==="TYPEVAR"){
+obj2=getVariable(code[i+2]) 
+code[i+2]=code[i+3] 
+code[i+3]=code[i+4] 
+console.log(obj2,code[i+2]) 
+}
+try{
+    if(code[i-3]==="TYPEARRAY"){
+        
+   obj1=getArrayValue(code[i-2],code[i-1])
+    }
+    if(code[i+1]==="TYPEARRAY"){
+      alert("yup")  
+      obj2=getArrayValue(code[i+2],code[i+3])
+        code[i+2]=code[i+4]
+        code[i+3]=code[i+5]
+        code[i+4]=code[i+6]
+    }
+    }catch(e){}
+            if(isNaN(obj1)===false){
+                obj1=parseInt(obj1)
+            }
+            if(isNaN(obj2)===false){
+                obj2=parseInt(obj2)
+            }
+            if(isNaN(obj1)===true){
+obj1=parseInt(obj1)
+            }
+            if(isNaN(obj2)===true){
+                 obj2=parseInt(obj2)
+            }
+            if(obj1<obj2){
+if(code[i+2]==="navigate"){
+navigate(code[i+3],code[i+4])
+}
+if(code[i+2]==="Pause"){
+Pause(code[i+3])
+}
+if(code[i+2]==="Stop"){
+Stop(code[i+3])
+}
+if(code[i+2]==="Play"){
+Play(code[i+3])
+}
+if(code[i+2]==="createVideo"){
+createVideo(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}
+if(code[i+2]==="createAudio"){
+createAudio(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="createPopUp"){
+createPopUp(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i+2]==="3DSquare"){
+threeDSquare(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12],code[i+13],code[i+14])
+}
+if(code[i+2]==="notify"){
+notify(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleWarning"){
+consoleWarn(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleError"){
+consoleError(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleLog"){
+consoleLog(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleAssert"){
+consoleAssert(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleNumberCount"){
+consoleNumberCount(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleCountReset"){
+consoleCountReset(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleDebug"){
+consoleDebug(code[i+3],code[i+4])
+}
+if(code[i+2]==="consoleInfo"){
+consoleInfo(code[i+3],code[i+4])
+}
+if(code[i+2]==="accessSessionStorage"){
+accessSessionStorage(code[i+3])
+}
+if(code[i+2]==="accessLocalStorage"){
+accessLocalStorage(code[i+3])
+}
+if(code[i+2]==="pinToSessionStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToSessionStorage(code[i+3],code[i+4])
+}else{
+pinToSessionStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+if(code[i+2]==="pinToLocalStorage"){
+if(code[i+4]!=="TYPEVAR"){
+pinToLocalStorage(code[i+3],code[i+4])
+}else{
+pinToLocalStorage(code[i+3],getVariable(code[i+5]))
+}
+}
+                if(code[i+2]==="subtract"){
+        subtract(code[i+3],code[i+4])
+    }
+    if(code[i+2]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3])
+    }
+    if(code[i+2]==="multiply"){
+        multiply(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="divide"){
+        divide(code[i+3],code[i+4],code[i+5])
+    }
+    if(code[i+2]==="subtract1"){
+        subtract1(code[i+3],code[i+4])
+    }
+                if(code[i+2]==="add1"){
+        add1(code[i+3])
+    }
+    if(code[i+2]==="loop"){
+        loopThis[loopControl]=code[i+3]
+        console.log(loopThis)
+        loopControl++;
+    }
+                if(code[i+2]==="redefine"){
+                    redefine(code[i+3],code[i+4])
+                }
+                if(code[i+2]==="changeTextColor"){
+                    var num=i 
+                    console.log(code[i+3])
+                    document.getElementById(code[i+3]).style.color=code[i+4]
+                    }
+                    if(code[i+2]==="changeBackgroundColor"){
+                    document.getElementById(code[i+3]).style.backgroundColor=code[i+4]
+                    }
+                    if(code[i+2]==="changeFontSize"){
+                    document.getElementById(code[i+3]).style.fontSize=code[i+4]
+                    }
+                    if(code[i+2]==="changeFont"){
+                    document.getElementById(code[i+3]).style.fontFamily=code[i+4]
+                    }
+                    if(code[i+2]==="declare"){
+                    declare(code[i+3],code[i+4])
+                    }
+                    if(code[i+2]==="run"){
+                    run(code[i+3])
+                    }
+                    if(code[i+2]==="bezierVertex"){
+                        bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+                    } 
+                    if(code[i+2]==="createCanvas"){
+                        createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+                    }
+if(code[i+2]==="createFunction"){
+createFunction(code[i+3],code[i+4])
+}
+            }
+        }
+    }
+}
+function checkForAddSymbol(input){
+var add=new RegExp(/[+]/) 
+if(add.test(input)===true){
+return true
+}
+}
+function checkForSubtractSymbol(input){
+var sub=new RegExp(/[-]/)
+if(sub.test(input)===true){
+return true
+}
+}
+function useEventCallback(id,event,callback){
+var code=callback.split("_") 
+if(event==="whenClicked"){
+document.getElementById(id).onclick=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i]==="bezierVertex"){
+    bezeirVertex(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}if(code[i]==="createCanvas"){
+    createCanvas(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+}
+}
+}
+if(event==="whenMouseOver"){
+document.getElementById(id).onmouseover=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i]==="bezierVertex"){
+    bezeirVertex(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}if(code[i]==="createCanvas"){
+    createCanvas(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+}
+}
+}
+if(event==="whenMouseOut"){
+document.getElementById(id).onmouseout=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i]==="bezierVertex"){
+    bezeirVertex(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}if(code[i]==="createCanvas"){
+    createCanvas(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+}
+}
+}
+if(event==="whenMouseEnters"){
+document.getElementById(id).onmouseenter=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i]==="bezierVertex"){
+    bezeirVertex(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}if(code[i]==="createCanvas"){
+    createCanvas(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+}
+}
+}
+if(event==="whenMouseOver"){
+document.getElementById(id).onmouseover=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i+2]==="bezierVertex"){
+    bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}if(code[i+2]==="createCanvas"){
+    createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+}
+}
+}
+if(event==="whenLoaded"){
+document.getElementById(id).onload=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i+2]==="bezierVertex"){
+    bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}if(code[i+2]==="createCanvas"){
+    createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+}
+}
+}
+if(event==="whenKeyPressed"){
+document.getElementById(id).onkeypress=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i+2]==="bezierVertex"){
+    bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}if(code[i+2]==="createCanvas"){
+    createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+}
+}
+}
+if(event==="whenKeyUp"){
+document.getElementById(id).onkeyup=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i+2]==="bezierVertex"){
+    bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}if(code[i+2]==="createCanvas"){
+    createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+}
+}
+}
+if(event==="whenKeyDown"){
+document.getElementById(id).onkeydown=function(){
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3DSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+if(code[i]==="changeTextColor"){
+document.getElementById(id).style.color=code[i+1]
+}
+if(code[i]==="changeBackgroundColor"){
+document.getElementById(id).style.backgroundColor=code[i+1]
+}
+if(code[i]==="changeFontSize"){
+document.getElementById(id).style.fontSize=code[i+1]
+}
+if(code[i]==="changeFont"){
+document.getElementById(id).style.fontFamily=code[i+1]
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}
+if(code[i+2]==="bezierVertex"){
+    bezeirVertex(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9])
+}if(code[i+2]==="createCanvas"){
+    createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+}
+}
+}
+
+}
+
+function run(name){
+var code=""
+for(var n=0;n<=functions.length-1;n++){
+if(functions[n][0]===name||functions[n][0]==name+"\n"){
+code=functions[n][1].split("|") 
+
+for(var i=0;i<=code.length-1;i++){
+if(code[i]==="navigate"){
+navigate(code[i+1],code[i+2])
+}
+if(code[i]==="Pause"){
+Pause(code[i+1])
+}
+if(code[i]==="Stop"){
+Stop(code[i+1])
+}
+if(code[i]==="Play"){
+Play(code[i+1])
+}
+if(code[i]==="createVideo"){
+createVideo(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="createAudio"){
+createAudio(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="createPopUp"){
+createPopUp(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+if(code[i]==="3dSquare"){
+threeDSquare(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7],code[i+8],code[i+9],code[i+10],code[i+11],code[i+12])
+}
+if(code[i]==="notify"){
+notify(code[i+1],code[i+2])
+}
+if(code[i]==="consoleWarning"){
+consoleWarn(code[i+1],code[i+2])
+}
+if(code[i]==="consoleError"){
+consoleError(code[i+1],code[i+2])
+}
+if(code[i]==="consoleLog"){
+consoleLog(code[i+1],code[i+2])
+}
+if(code[i]==="consoleAssert"){
+consoleAssert(code[i+1],code[i+2])
+}
+if(code[i]==="consoleNumberCount"){
+consoleNumberCount(code[i+1],code[i+2])
+}
+if(code[i]==="consoleCountReset"){
+consoleCountReset(code[i+1],code[i+2])
+}
+if(code[i]==="consoleDebug"){
+consoleDebug(code[i+1],code[i+2])
+}
+if(code[i]==="consoleInfo"){
+consoleInfo(code[i+1],code[i+2])
+}
+if(code[i]==="pinToLocalStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToLocalStorage(code[i+1],code[i+2])
+}else{
+pinToLocalStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="pinToSessionStorage"){
+if(code[i+2]!=="TYPEVAR"){
+pinToSessionStorage(code[i+1],code[i+2])
+}else{
+pinToSessionStorage(code[i+1],getVariable(code[i+3]))
+}
+}
+if(code[i]==="accessLocalStorage"){
+accessLocalStorage(code[i+1],code[i+2])
+}
+if(code[i]==="accessSessionStorage"){
+accessSessionStorage(code[i+1],code[i+2])
+}
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="innerColor"){
+        innerColor(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="outerColor"){
+        outerColor(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="square"){
+square(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5])
+}
+    if(code[i]==="subtract"){
+        subtract(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="add"){
+        add(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1])
+    }
+    if(code[i]==="multiply"){
+        multiply(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="divide"){
+        divide(code[i+1],code[i+2],code[i+3])
+    }
+    if(code[i]==="subtract1"){
+        subtract1(code[i+1],code[i+2])
+    }
+    if(code[i]==="add1"){
+        add1(code[i+1])
+    }
+    if(code[i]==="loop"){
+        loopThis[loopControl]=code[i+1]
+        console.log(loopThis)
+        loopControl++;
+    }
+    if(code[i]==="bezierVertex"){
+        console.log("running")
+    bezeirVertex(code[i+1],code[i+2],code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="grabElementById"){
+grabElementById(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="declare"){
+declare(code[i+1],code[i+2])
+}
+if(code[i]==="run"){
+run(code[i+1])
+}
+if(code[i]==="createFunction"){
+console.error("You can not create a function within a function!")
+}
+if(code[i]==="create"){
+var c=""
+var txt=code[i+3].split("_")
+for(var t=0;t<txt.length;t++){
+if(typeof(txt[t])==="undefined"){
+txt[t]=""
+}
+c=c+" "+txt[t]
+}
+create(code[i+1],code[i+2],c,code[i+4],code[i+5])
+}
+if(code[i]==="redefine"){
+    redefine(code[i+1],code[i+2])
+}
+if(code[i]==="startLine"){
+    startLine(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="lineTo"){
+    lineToward(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="beginShape"){
+    begin(code[i+1])
+}
+if(code[i]==="endShape"){
+    end(code[i+1])
+}if(code[i+2]==="createCanvas"){
+    createCanvas(code[i+3],code[i+4],code[i+5],code[i+6],code[i+7])
+}
+if(code[i]==="changeText"){
+ var c=code[i+2].split("_")
+    code[i+2]="" 
+    for(var txt=0;txt<=c.length-1;txt++){
+        if(typeof(c[txt])==="undefined"){
+            c[txt]=""
+        }
+        code[i+2]=code[i+2]+" "+c[txt]
+    }
+changeText(code[i+1],code[i+2],code[i+3])
+}
+if(code[i]==="changeTextColor"){
+    console.log(code[i])
+    document.getElementById(code[i+1]).style.color=code[i+2]
+    }
+    if(code[i]==="changeBackgroundColor"){
+        document.getElementById(code[i+1]).style.backgroundColor=code[i+2]
+        }
+if(code[i]==="useEventCallback"){
+useEventCallback(code[i+1],code[i+2],code[i+3]) 
+}
+if(code[i]==="if"){
+    when(code[i+1])
+}
+}
+}
+}
+}
+
+setInterval(loop,1)
+
+
+function changeText(id,desiredText,event){
+var e=document.getElementById(id) 
+if(typeof(event)!=="undefined"){
+if(event==="none"){
+e.innerText=desiredText
+}
+if(event==="whenClicked"){
+e.onclick=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenMouseMoved"){
+e.onmousemoved=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenMouseOut"){
+e.onmouseout=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenMouseEnters"){
+e.onmouseenter=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenKeyUp"){
+e.onkeyup=function(){
+e.innerText=desiredText
+}
+}
+if(event==="whenKeyDown"){
+e.onkeydown=function(){
+e.innerText=desiredText
+}
+if(event==="whenKeyPress"){
+e.onkeypress=function(){
+e.innerText=desiredText
+}
+}
+}
+}
+} function loop(){
+    variables[0][1]++;
+for(var i=0;i<functions.length;i++){
+    for(var f=0;f<loopThis.length;f++){
+        if(functions[i][0]===loopThis[f]){
+            run(loopThis[f])
+        }
+    }
+}
+}
+
+}
+
+
+
+
+
+prep()
